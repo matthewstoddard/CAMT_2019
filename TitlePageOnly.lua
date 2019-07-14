@@ -4,11 +4,13 @@ platform.apiLevel = '2.7'
 local screen = platform.window
 local width, height
 
+-- text strings
+-- change as appropriate for your quiz
 local title = 'Quiz Template'
 local copyright = '©2019 Matthew Stoddard'
 
 
-function setFontSize(size, gc)
+function getFontSize(size, gc)
     local fontSize
     if size == 'h1' then
         fontSize = math.floor(width * 0.057)
@@ -36,14 +38,14 @@ function on.paint(gc)
     -- set font color
     gc:setColorRGB(48,85,240)
     -- set font style and size
-    gc:setFont('sansserif','b',setFontSize('h1',gc))
+    gc:setFont('sansserif','b',getFontSize('h1',gc))
     -- get information for text positioning
     local sw = gc:getStringWidth(title)
     local sh = gc:getStringHeight(title)
     -- draw title string
     gc:drawString(title,(width - sw)/2, height*0.30)
     -- set font style and size
-    gc:setFont('sansserif','r',setFontSize('s',gc))
+    gc:setFont('sansserif','r',getFontSize('s',gc))
     -- get information for text positioning
     local sw = gc:getStringWidth(copyright)
     local sh = gc:getStringHeight(copyright)
